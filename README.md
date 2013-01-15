@@ -1,0 +1,5 @@
+# .zsh
+
+* .zshenv
+* .zshrc
+* .zprofile
