@@ -36,10 +36,24 @@ bindkey -e
 # }}}
 
 # prompt {{{
-function parse_git_branch {
-  git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)'
+function git_prompt {
+  local branch branch_color head head_color
+  branch=`git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3`
+  if [[ -z $branch ]]; then
+    return
+  fi
+  if [[ -n `git status | grep "^nothing to"` ]]; then
+    branch_color="085"
+  else
+    branch_color="126"
+  fi
+  head=`git rev-parse --verify -q HEAD 2>/dev/null | cut -c 1-8`
+  head_color="229"
+  echo "%F{$branch_color}‹$branch›%f %F{$head_color}$head%f"
 }
-export PS1="%{$fg[green]%}[%* - %l]%{$reset_color%} %d %{$fg[yellow]%}%%%{$reset_color%} "
+setopt prompt_subst
+PROMPT='%F{029}« %m »%f %F{077}%~%f `git_prompt`
+%F{219}%#%f '
 #autoload -U promptinit
 #promptinit
 #prompt gentoo
