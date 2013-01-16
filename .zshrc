@@ -10,6 +10,8 @@ autoload -U compinit && compinit
 
 # cd {{{
 setopt autocd
+setopt auto_pushd
+setopt pushd_ignore_dups
 # }}}
 
 # glob {{{
