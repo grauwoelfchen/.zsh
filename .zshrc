@@ -4,10 +4,6 @@
 autoload -U compinit && compinit
 # }}}
 
-# alias {{{
-source $HOME/.aliasrc
-# }}}
-
 # correction {{{
 #setopt correctall
 # }}}
@@ -42,23 +38,6 @@ export PS1="%{$fg[green]%}[%* - %l]%{$reset_color%} %d %{$fg[yellow]%}%%%{$reset
 #prompt gentoo
 # }}}
 
-
-# rbenv {{{
-export RBENV_ROOT=/usr/local/rbenv
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
-# }}}
-
-# python
-export PYTHONSTARTUP=$HOME/.pythonstartup
-
-# virtualenv
-export VIRTUALENV_USE_DISTRIBUTE=true
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-  export WORKON_HOME=/usr/local/virtualenvs
-  source /usr/bin/virtualenvwrapper.sh
-fi
-
 # startup (use if for scp)
 if [[ -n "$DISPLAY" ]]; then
   date "+%Y%m%d %H:%M:%S"
@@ -75,4 +54,3 @@ XTERM_SHELL=/bin/zsh
 XTERM_LOCALE="en_US.UTF-8"
 XTERM_VERSION="XTerm(276)"
 export TERM XTERM_SHELL_XTERM_LOCALE XTERM_VERSION
-
