@@ -4,6 +4,14 @@
 autoload -U compinit && compinit
 # }}}
 
+# espace {{{
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+autoload -Uz git-escape-magic # after url-quote-magic
+git-escape-magic
+
+# }}}
+
 # correction {{{
 #setopt correctall
 # }}}

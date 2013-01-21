@@ -1,0 +1,3 @@
+[submodule "bundle/zsh-git-escape-magic"]
+	path = bundle/zsh-git-escape-magic
+	url = https://github.com/knu/zsh-git-escape-magic

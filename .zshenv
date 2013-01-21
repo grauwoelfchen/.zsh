@@ -2,6 +2,11 @@
 
 # .zsh {{{
 export ZDOTDIR=$HOME/.zsh
+fpath=(
+$ZDOTDIR
+${ZDOTDIR}/bundle/zsh-git-escape-magic
+$fpath
+)
 # }}}
 
 # path {{{
