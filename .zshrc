@@ -36,6 +36,8 @@ export SAVEHIST=$HISTSIZE
 
 # color {{{
 autoload -U colors && colors
+eval `dircolors`
+zstyle ':completion:*:default' list-colors ${LS_COLORS}
 # }}}
 
 # keys {{{
