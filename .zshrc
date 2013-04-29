@@ -46,6 +46,15 @@ bindkey -e
 #bindkey -v
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
+bindkey '^[\-' quote-line
+## default
+#bindkey 'tab'  expand-or-complete
+#bindkey '^[q'  push-line
+#bindkey '^[a'  accept-and-hold
+#bindkey '^[h'  run-help
+#bindkey '^?'   delete-char
+#bindkey '^[\'' quote-line
+## shortcuts
 bindkey -s '^Z' '^[qvim^m'
 bindkey -s '^T' '^[quptime^m'
 # }}}
