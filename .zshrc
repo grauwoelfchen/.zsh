@@ -7,9 +7,6 @@ autoload -U compinit && compinit
 ### espace {{{
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
-## git
-autoload -Uz git-escape-magic # after url-quote-magic
-git-escape-magic
 # }}}
 
 ### correction {{{
@@ -81,4 +78,20 @@ PROMPT='%F{029}« %m »%f %F{077}%~%f `git_prompt`
 #autoload -U promptinit
 #promptinit
 #prompt gentoo
+# }}}
+
+### bundle {{{
+autoload -Uz git-escape-magic
+git-escape-magic
+autoload -Uz zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$HOME/.zsh/bundle/zsh-syntax-highlighting/highlighters"
+zsh-syntax-highlighting.zsh
+## syntax-highlight
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=088"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[path]="fg=182"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[command]="fg=066"
 # }}}
