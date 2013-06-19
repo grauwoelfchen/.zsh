@@ -15,7 +15,7 @@ PATH=/usr/local/sbin:/usr/local/bin:$PATH
 PATH=/sbin:/usr/sbin:$PATH
 export PATH
 # devel
-PATH=$HOME/Documents/devel/bin:$PATH
+PATH=$HOME/.work/dev/bin:$PATH
 export PATH
 # }}}
 
