@@ -95,3 +95,21 @@ ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
 ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[command]="fg=066"
 # }}}
+
+### commands - experiment {{{
+function st-branch() {
+  local branch remote ahead behind
+  if [[ -n $1 ]]; then
+    remote=$1
+  else
+    remote="upstrm"
+  fi
+  git for-each-ref --format="%(refname:short)" refs/heads refs/remotes | \
+  while read branch
+  do
+    ahead=`git rev-list remotes/"${remote}"/master..${branch} --count 2>/dev/null`
+    behind=`git rev-list ${branch}..remotes/"${remote}"/master --count 2>/dev/null`
+    printf "%-30s %16s | %-15s %s\n" "$branch" "(behind $behind)" "(ahead $ahead)" "remotes/${remote}/master"
+  done
+}
+# }}}
