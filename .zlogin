@@ -1,13 +1,12 @@
 #!/bin/zsh
 
-# startup (use if for scp)
+# startup
 if [[ -n "$DISPLAY" ]]; then
   date "+%Y%m%d %H:%M:%S"
-fi
-
-# Xmousebtn
-if [[ `uname` == 'Linux' ]]; then
-  source $HOME/.Xmousebtn
+  # Xmousebtn
+  if [[ `uname` == 'Linux' ]]; then
+    source $HOME/.Xmousebtn
+  fi
 fi
 
 # xterm
