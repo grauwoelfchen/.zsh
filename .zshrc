@@ -112,4 +112,8 @@ function st-branch() {
     printf "%-30s %16s | %-15s %s\n" "$branch" "(behind $behind)" "(ahead $ahead)" "remotes/${remote}/master"
   done
 }
+
+function quicklisp-init() {
+  (curl -L http://beta.quicklisp.org/quicklisp.lisp && echo '(quicklisp-quickstart:install :path #P".quicklisp/")') | clisp
+}
 # }}}
