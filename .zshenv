@@ -28,7 +28,8 @@ eval "$(rbenv init -)"
 # python {{{
 export PYTHONSTARTUP=$HOME/.pythonstartup
 # virtualenv
-export VIRTUALENV_USE_DISTRIBUTE=true
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.3
+#export VIRTUALENV_USE_DISTRIBUTE=true
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=/usr/local/virtualenvs
   source /usr/bin/virtualenvwrapper.sh
