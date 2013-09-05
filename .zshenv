@@ -28,15 +28,16 @@ eval "$(rbenv init -)"
 # python {{{
 export PYTHONSTARTUP=$HOME/.pythonstartup
 # virtualenv
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.3
-#export VIRTUALENV_USE_DISTRIBUTE=true
 if [[ `uname` -ne 'Linux' ]]; then
   VIRTUALENV_BIN_ROOT=/usr/local
 else
   VIRTUALENV_BIN_ROOT=/usr
 fi
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+#export VIRTUALENV_USE_DISTRIBUTE=true
 if [ -f $VIRTUALENV_BIN_ROOT/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=/usr/local/virtualenvs
+  export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
   source $VIRTUALENV_BIN_ROOT/bin/virtualenvwrapper.sh
 fi
 # }}}
