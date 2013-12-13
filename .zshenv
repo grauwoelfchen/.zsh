@@ -33,7 +33,7 @@ if [[ `uname` -ne 'Linux' ]]; then
 else
   VIRTUALENV_BIN_ROOT=/usr
 fi
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 #export VIRTUALENV_USE_DISTRIBUTE=true
 if [ -f $VIRTUALENV_BIN_ROOT/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=/usr/local/virtualenvs
