@@ -11,12 +11,14 @@ $fpath
 # }}}
 
 # path {{{
-PATH=/usr/local/sbin:/usr/local/bin:$PATH
-PATH=/sbin:/usr/sbin:$PATH
-export PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/sbin:/usr/sbin:$PATH
 # devel
-PATH=$HOME/.work/dev/bin:$PATH
-export PATH
+export PATH=$HOME/.work/dev/bin:$PATH
+# }}}
+
+# lisp {{{
+export PATH=$HOME/.shelly/bin:$PATH
 # }}}
 
 # rbenv {{{
