@@ -15,6 +15,18 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/sbin:/usr/sbin:$PATH
 # devel
 export PATH=$HOME/.work/dev/bin:$PATH
+# osx
+if [[ `uname` == 'Darwin' ]]; then
+  # MacPorts
+  export PATH="/opt/local/sbin:/opt/local/bin:$PATH"
+  # GNU
+  export PATH="/opt/local/libexec/gnubin/:$PATH"
+fi
+# }}}
+
+# editor {{{
+VIM=/usr/bin/vim
+export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 # }}}
 
 # lisp {{{
