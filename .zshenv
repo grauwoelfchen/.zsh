@@ -15,7 +15,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/sbin:/usr/sbin:$PATH
 # devel
 export PATH=$HOME/.work/dev/bin:$PATH
-# osx
 if [[ `uname` == 'Darwin' ]]; then
   # MacPorts
   export PATH="/opt/local/sbin:/opt/local/bin:$PATH"
@@ -26,6 +25,9 @@ fi
 
 # editor {{{
 VIM=/usr/bin/vim
+if [[ `uname` == 'Darwin' ]]; then
+  VIM=/opt/local/bin/vim
+fi
 export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 # }}}
 
