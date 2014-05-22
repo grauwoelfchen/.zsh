@@ -4,7 +4,8 @@
 autoload -U compinit && compinit
 # }}}
 
-### espace {{{
+### escape{{{
+setopt rcquotes
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 # }}}
