@@ -52,9 +52,6 @@ bindkey '^[\-' quote-line
 #bindkey '^[h'  run-help
 #bindkey '^?'   delete-char
 #bindkey '^[\'' quote-line
-## shortcuts
-bindkey -s '^Z' '^[qvim^m'
-bindkey -s '^T' '^[quptime^m'
 # }}}
 
 ### prompt {{{
