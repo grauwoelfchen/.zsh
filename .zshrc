@@ -117,4 +117,14 @@ function st-branch() {
 function quicklisp-init() {
   (curl -L http://beta.quicklisp.org/quicklisp.lisp && echo '(quicklisp-quickstart:install :path #P".quicklisp/")') | clisp
 }
+
+function genpasswd() {
+  local length
+  if [[ -n $1 ]]; then
+    length=$1
+  else
+    length=8
+  fi
+  tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
+}
 # }}}
