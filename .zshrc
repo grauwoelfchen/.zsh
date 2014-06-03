@@ -94,7 +94,7 @@ ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[command]="fg=066"
 # }}}
 
-### commands - experiment {{{
+### commands - util {{{
 function st-branch() {
   local branch remote ahead behind
   if [[ -n $1 ]]; then
@@ -110,6 +110,14 @@ function st-branch() {
     printf "%-30s %16s | %-15s %s\n" "$branch" "(behind $behind)" "(ahead $ahead)" "remotes/${remote}/master"
   done
 }
+
+function whymask() {
+  find /usr/portage/profiles/ -type f -name '*.mask' -exec \
+    awk -vRS= "/${*/\//.}/ {
+      print \" \" FILENAME \":\", \"\n\" \"\n\" \$0 \"\n\"
+    }" {} + 2>/dev/null | less
+}
+
 
 function quicklisp-init() {
   (curl -L http://beta.quicklisp.org/quicklisp.lisp && echo '(quicklisp-quickstart:install :path #P".quicklisp/")') | clisp
