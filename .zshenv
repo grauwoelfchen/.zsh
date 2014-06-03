@@ -31,6 +31,10 @@ fi
 export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 # }}}
 
+# git {{{
+GIT_MERGE_VERBOSITY=4
+# }}}
+
 # lisp {{{
 export PATH=$HOME/.shelly/bin:$PATH
 # }}}
