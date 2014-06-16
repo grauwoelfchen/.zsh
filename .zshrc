@@ -57,8 +57,8 @@ bindkey '^[\-' quote-line
 ### prompt {{{
 source $HOME/.sh.d/src/git-prompt.sh
 setopt prompt_subst
-PROMPT='%F{029}« %m »%f %F{077}%~%f `git_prompt`
-%F{219}%#%f '
+PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | awk -F'  ' '{ print \$4 }')
+%F{219}%#%f "
 #autoload -U promptinit
 #promptinit
 #prompt gentoo
