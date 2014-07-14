@@ -51,9 +51,3 @@ fi
 # alias {{{
 source $HOME/.aliasrc
 # }}}
-
-# darwin {{{
-if [[ `uname` == 'Darwin' ]]; then
-  source $HOME/.zsh/.zshenv.darwin
-fi
-# }}}
