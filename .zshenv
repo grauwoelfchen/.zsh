@@ -13,8 +13,8 @@ $fpath
 # path {{{
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/sbin:/usr/sbin:$PATH
-# devel
-export PATH=$HOME/.work/dev/bin:$PATH
+# atelier
+export PATH=$HOME/.atelier/bin:$PATH
 # }}}
 
 # editor {{{
