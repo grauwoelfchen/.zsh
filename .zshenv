@@ -23,7 +23,7 @@ export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 # }}}
 
 # git {{{
-GIT_MERGE_VERBOSITY=4
+export GIT_MERGE_VERBOSITY=4
 # }}}
 
 # lisp {{{
