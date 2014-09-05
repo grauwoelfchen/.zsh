@@ -30,6 +30,10 @@ export GIT_MERGE_VERBOSITY=4
 export PATH=$HOME/.shelly/bin:$PATH
 # }}}
 
+# haskell {{{
+export PATH=$HOME/.cabal/bin:$PATH
+# }}}
+
 # rbenv {{{
 export RBENV_ROOT=/usr/local/share/rbenv
 export PATH="$RBENV_ROOT/bin:$PATH"
