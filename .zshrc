@@ -122,4 +122,6 @@ function genpasswd() {
   fi
   tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
 }
+
+source $HOME/.zsh/.zshrc.personal
 # }}}
