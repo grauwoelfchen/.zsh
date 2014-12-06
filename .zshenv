@@ -13,6 +13,7 @@ $fpath
 # path {{{
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/sbin:/usr/sbin:$PATH
+export PATH=$PATH:/usr/games/bin
 # atelier
 export PATH=$HOME/.atelier/bin:$PATH
 # }}}
