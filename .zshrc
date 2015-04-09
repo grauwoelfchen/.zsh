@@ -41,7 +41,7 @@ zstyle ':completion:*:default' list-colors ${LS_COLORS}
 
 ### keys {{{
 bindkey -e
-#bindkey -v
+# bindkey -v
 bindkey '^p' history-beginning-search-backward
 bindkey '^n' history-beginning-search-forward
 bindkey '^[\-' quote-line

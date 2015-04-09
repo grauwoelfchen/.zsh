@@ -44,13 +44,12 @@ eval "$(rbenv init -)"
 # python {{{
 export PYTHONSTARTUP=$HOME/.pythonstartup
 # virtualenv
-VIRTUALENV_BIN_ROOT=/usr
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-if [ -f $VIRTUALENV_BIN_ROOT/bin/virtualenvwrapper.sh ]; then
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=/usr/local/share/virtualenvs
   export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
   export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
-  source $VIRTUALENV_BIN_ROOT/bin/virtualenvwrapper_lazy.sh
+  source /usr/bin/virtualenvwrapper_lazy.sh
 fi
 # }}}
 
