@@ -138,4 +138,4 @@ source $HOME/.zsh/.zshrc.personal
 # }}}
 
 # added by travis gem
-[ -f /home/yasuhiro/.travis/travis.sh ] && source /home/yasuhiro/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
