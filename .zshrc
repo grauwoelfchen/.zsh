@@ -62,10 +62,12 @@ bindkey '^H'   slash-backward-kill-word
 source $HOME/.sh.d/src/git-prompt.sh
 setopt prompt_subst
 # spring
-#PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | awk -F': ' '{ print \$2 }')
+#PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | \
+#awk -F': ' '{ print \$2 }')
 #%F{219}%#%f "
 # summer
-PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | awk -F': ' '{ print \$2 }')
+PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
+awk -F': ' '{ print \$2 }')
 %F{103}%#%f "
 #autoload -U promptinit
 #promptinit
@@ -76,7 +78,8 @@ PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | awk -F': ' '{ print \$
 autoload -Uz git-escape-magic
 git-escape-magic
 autoload -Uz zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$HOME/.zsh/bundle/zsh-syntax-highlighting/highlighters"
+ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="\
+$HOME/.zsh/bundle/zsh-syntax-highlighting/highlighters"
 zsh-syntax-highlighting.zsh
 ## syntax-highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -107,9 +110,12 @@ function st-branch() {
   git for-each-ref --format="%(refname:short)" refs/heads refs/remotes | \
   while read branch
   do
-    ahead=`git rev-list remotes/"${remote}"/master..${branch} --count 2>/dev/null`
-    behind=`git rev-list ${branch}..remotes/"${remote}"/master --count 2>/dev/null`
-    printf "%-30s %16s | %-15s %s\n" "$branch" "(behind $behind)" "(ahead $ahead)" "remotes/${remote}/master"
+    ahead=`git rev-list remotes/"${remote}"/master..${branch} \
+           --count 2>/dev/null`
+    behind=`git rev-list ${branch}..remotes/"${remote}"/master \
+            --count 2>/dev/null`
+    printf "%-30s %16s | %-15s %s\n" "$branch" \
+           "(behind $behind)" "(ahead $ahead)" "remotes/${remote}/master"
   done
 }
 
@@ -121,7 +127,8 @@ function whymask() {
 }
 
 function quicklisp-init() {
-  (curl -L http://beta.quicklisp.org/quicklisp.lisp && echo '(quicklisp-quickstart:install :path #P".quicklisp/")') | clisp
+  (curl -L http://beta.quicklisp.org/quicklisp.lisp && \
+   echo '(quicklisp-quickstart:install :path #P".quicklisp/")') | clisp
 }
 
 function genpasswd() {
