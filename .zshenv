@@ -27,6 +27,10 @@ export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 export GIT_MERGE_VERBOSITY=4
 # }}}
 
+# erlang {{{
+export PATH=$HOME/.erln8.d/bin:$PATH
+# }}}
+
 # lisp {{{
 export PATH=$HOME/.shelly/bin:$PATH
 # }}}
