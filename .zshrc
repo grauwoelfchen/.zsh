@@ -40,18 +40,22 @@ zstyle ':completion:*:default' list-colors ${LS_COLORS}
 # }}}
 
 ### keys {{{
+# note
+#   ^  := ctrl
+#   ^[ := esc
 bindkey -e
 # bindkey -v
-bindkey '^p' history-beginning-search-backward
-bindkey '^n' history-beginning-search-forward
+bindkey '^p'   history-beginning-search-backward
+bindkey '^n'   history-beginning-search-forward
 bindkey '^[\-' quote-line
+bindkey '^H'   slash-backward-kill-word
 ## default
 #bindkey 'tab'  expand-or-complete
 #bindkey '^[q'  push-line
 #bindkey '^[a'  accept-and-hold
 #bindkey '^[h'  run-help
-#bindkey '^?'   delete-char
 #bindkey '^[\'' quote-line
+#bindkey '^?'   delete-char
 # }}}
 
 ### prompt {{{
@@ -84,7 +88,15 @@ ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[command]="fg=066"
 # }}}
 
-### commands - util {{{
+### widgets {{{
+slash-backward-kill-word() {
+  local WORDCHARS="${WORDCHARS:s@/@}"
+  zle backward-kill-word
+}
+zle -N slash-backward-kill-word
+# }}}
+
+### utils {{{
 function st-branch() {
   local branch remote ahead behind
   if [[ -n $1 ]]; then
@@ -108,7 +120,6 @@ function whymask() {
     }" {} + 2>/dev/null | less
 }
 
-
 function quicklisp-init() {
   (curl -L http://beta.quicklisp.org/quicklisp.lisp && echo '(quicklisp-quickstart:install :path #P".quicklisp/")') | clisp
 }
@@ -125,3 +136,6 @@ function genpasswd() {
 
 source $HOME/.zsh/.zshrc.personal
 # }}}
+
+# added by travis gem
+[ -f /home/yasuhiro/.travis/travis.sh ] && source /home/yasuhiro/.travis/travis.sh
