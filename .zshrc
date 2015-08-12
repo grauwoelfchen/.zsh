@@ -75,11 +75,11 @@ PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
 # }}}
 
 ### bundle {{{
+BUNDLE="$HOME/.zsh/bundle"
 autoload -Uz git-escape-magic
 git-escape-magic
 autoload -Uz zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=\
-  "$HOME/.zsh/bundle/zsh-syntax-highlighting/highlighters"
+ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
 zsh-syntax-highlighting.zsh
 ## syntax-highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
