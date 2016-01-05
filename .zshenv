@@ -23,6 +23,10 @@ VIM=/usr/bin/vim
 export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 # }}}
 
+# browser {{{
+export WWW_HOME="file:///opt/local/.startup/index.html"
+# }}}
+
 # git {{{
 export GIT_MERGE_VERBOSITY=4
 # }}}
