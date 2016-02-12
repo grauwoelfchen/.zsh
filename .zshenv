@@ -41,7 +41,7 @@ export PATH=$HOME/.cabal/bin:$PATH
 
 # rbenv {{{
 export RBENV_ROOT=/usr/local/share/rbenv
-export PATH="$RBENV_ROOT/bin:$PATH"
+export PATH=$RBENV_ROOT/bin:$PATH
 eval "$(rbenv init -)"
 # }}}
 
@@ -55,6 +55,14 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
   source /usr/bin/virtualenvwrapper_lazy.sh
 fi
+# }}}
+
+# go {{{
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/.go
+export GOARCH=amd64
+export GOOS=linux
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # }}}
 
 # alias {{{
