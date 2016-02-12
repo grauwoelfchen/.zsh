@@ -74,23 +74,6 @@ awk -F': ' '{ print \$2 }')
 #prompt gentoo
 # }}}
 
-### bundle {{{
-BUNDLE="$HOME/.zsh/bundle"
-autoload -Uz git-escape-magic
-git-escape-magic
-autoload -Uz zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
-zsh-syntax-highlighting.zsh
-## syntax-highlight
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=088"
-ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
-ZSH_HIGHLIGHT_STYLES[path]="fg=182"
-ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
-ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
-ZSH_HIGHLIGHT_STYLES[command]="fg=066"
-# }}}
-
 ### widgets {{{
 slash-backward-kill-word() {
   local WORDCHARS="${WORDCHARS:s@/@}"
@@ -144,5 +127,24 @@ function genpasswd() {
 source $HOME/.zsh/.zshrc.personal
 # }}}
 
-# added by travis gem
+### vendors {{{
+# travis
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+# }}}
+
+### bundle {{{
+BUNDLE="$HOME/.zsh/bundle"
+autoload -Uz git-escape-magic
+git-escape-magic
+ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
+source $BUNDLE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+## syntax-highlight
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=088"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[path]="fg=182"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[command]="fg=066"
+# }}}
+
