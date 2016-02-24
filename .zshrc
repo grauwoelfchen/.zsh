@@ -126,7 +126,7 @@ function genpasswd() {
   tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
 }
 
-source $HOME/.zsh/.zshrc.personal
+source $HOME/.zsh/.zshrc.metal
 # }}}
 
 ### vendors {{{
