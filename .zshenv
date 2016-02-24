@@ -40,7 +40,10 @@ export PATH=$HOME/.shelly/bin:$PATH
 # }}}
 
 # haskell {{{
+## cabal
 export PATH=$HOME/.cabal/bin:$PATH
+## stack
+export PATH=$HOME/.local/bin:$PATH
 # }}}
 
 # rbenv {{{
