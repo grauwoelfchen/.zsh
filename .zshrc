@@ -18,6 +18,8 @@ zle -N self-insert url-quote-magic
 setopt autocd
 setopt auto_pushd
 setopt pushd_ignore_dups
+# go-overlay
+eval "$(direnv hook zsh)"
 # }}}
 
 ### glob {{{
@@ -147,4 +149,3 @@ ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
 ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[command]="fg=066"
 # }}}
-
