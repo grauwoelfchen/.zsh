@@ -61,7 +61,7 @@ bindkey '^H'   slash-backward-kill-word
 # }}}
 
 ### prompt {{{
-source $HOME/.sh.d/src/git-prompt.sh
+[ -f $HOME/.sh.d/src/git-prompt.sh ] && source $HOME/.sh.d/src/git-prompt.sh
 setopt prompt_subst
 # spring
 #PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | \
@@ -126,7 +126,8 @@ function genpasswd() {
   tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
 }
 
-source $HOME/.zsh/.zshrc.metal
+# private .zshrc
+[ -f $HOME/.zsh/.zshrc.metal ] && source $HOME/.zsh/.zshrc.metal
 # }}}
 
 ### vendors {{{
