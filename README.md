@@ -64,5 +64,5 @@ The files will be loaded by following order.
 
 ## License
 
-Copyright (C) 2013 - 2016 Yasuhiro Asaka \<grauwoelfchen@gmail.com\>
+Copyright (C) 2013 - 2016 Yasuhiro Asaka \<grauwoelfchen@gmail.com\>  
 Distributed under the GNU General Public License, version [2.0](http://www.gnu.org/licenses/gpl-2.0.txt).
