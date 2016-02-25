@@ -1,5 +1,13 @@
 # .zsh
 
+## Setup
+
+```
+% cd
+% git clone git@github.com:grauwoelfchen/.zsh.git && cd .zsh
+% git submodule update --init
+```
+
 ## Prompt
 
 ```
