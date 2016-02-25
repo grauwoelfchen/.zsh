@@ -19,7 +19,7 @@ setopt autocd
 setopt auto_pushd
 setopt pushd_ignore_dups
 # go-overlay
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 # }}}
 
 ### glob {{{
@@ -138,9 +138,13 @@ source $HOME/.zsh/.zshrc.metal
 BUNDLE="$HOME/.zsh/bundle"
 autoload -Uz git-escape-magic
 git-escape-magic
+## autoenv
+source $BUNDLE/zsh-autoenv/autoenv.zsh
+AUTOENV_FILE_ENTER=.autoenv.zsh
+AUTOENV_FILE_LEAVE=.autoenv.leave.zsh
+## syntax-highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
 source $BUNDLE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-## syntax-highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=088"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
