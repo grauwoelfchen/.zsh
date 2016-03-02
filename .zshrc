@@ -141,8 +141,8 @@ autoload -Uz git-escape-magic
 git-escape-magic
 ## autoenv
 source $BUNDLE/zsh-autoenv/autoenv.zsh
-AUTOENV_FILE_ENTER=.autoenv.zsh
-AUTOENV_FILE_LEAVE=.autoenv.leave.zsh
+AUTOENV_FILE_ENTER=.autoenv
+AUTOENV_FILE_LEAVE=.autoenv.leave
 ## syntax-highlight
 ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
 source $BUNDLE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
