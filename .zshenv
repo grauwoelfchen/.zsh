@@ -70,7 +70,6 @@ export GOPATH=$HOME/.go
 export GOARCH=amd64
 export GOOS=linux
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export GO15VENDOREXPERIMENT=1
 # }}}
 
 # alias {{{
