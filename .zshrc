@@ -126,6 +126,11 @@ function genpasswd() {
   tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
 }
 
+function restore-tabs() {
+  cat $HOME/urls.txt | \
+    while read line; do firefox -new-tab $line >/dev/null 2>&1; done
+}
+
 # private .zshrc
 [ -f $HOME/.zsh/.zshrc.metal ] && source $HOME/.zsh/.zshrc.metal
 # }}}
