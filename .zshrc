@@ -131,6 +131,15 @@ function restore-tabs() {
     while read line; do firefox -new-tab $line >/dev/null 2>&1; done
 }
 
+# GnuPG (agent) {{{
+[ -z "$(pgrep gpg-agent)" ] && \
+  eval $(gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info)
+[ -f $HOME/.gpg-agent-info ] && \
+  source $HOME/.gpg-agent-info
+export GPG_AGENT_INFO
+export GPG_TTY=`tty`
+# }}}
+
 # private .zshrc
 [ -f $HOME/.zsh/.zshrc.metal ] && source $HOME/.zsh/.zshrc.metal
 # }}}
