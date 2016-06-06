@@ -9,6 +9,10 @@ if [[ -n "$DISPLAY" ]]; then
   fi
 fi
 
+# stty
+# disable stop by `C-s`
+stty stop undef
+
 # xterm
 TERM=xterm-256color
 XTERM_SHELL=/bin/zsh
