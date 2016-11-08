@@ -5,7 +5,7 @@ if [[ -n "$DISPLAY" ]]; then
   date "+%Y%m%d %H:%M:%S"
   # Xmousebtn
   if [[ `uname` == 'Linux' ]]; then
-    source $HOME/.Xmousebtn
+    source $HOME/.xmousebtn
   fi
 fi
 
