@@ -65,13 +65,16 @@ fi
 # }}}
 
 # go {{{
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/.go
 export GOARCH=amd64
 export GOOS=linux
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 # gvm
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# system
+if [ "/usr/bin/go" = "$(which go)" ]; then
+  export GOROOT=/usr/lib/go
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 # }}}
 
 # alias {{{
