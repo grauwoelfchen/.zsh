@@ -133,11 +133,11 @@ function restore-tabs() {
 
 # GnuPG (agent) {{{
 # >= 2.1.11
-[ -z "$(pgrep gpg-agent)" ] && eval "$(gpg-agent --daemon)"
-# < 2.1.11
 #[ -z "$(pgrep gpg-agent)" ] && \
-#  eval $(gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info)
-
+#  eval "$(gpg-agent --daemon --options $HOME/.gnupg/gpg-agent.conf)"
+# < 2.1.11
+[ -z "$(pgrep gpg-agent)" ] && \
+  eval $(gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info)
 [ -f $HOME/.gpg-agent-info ] && \
   source $HOME/.gpg-agent-info
 export GPG_AGENT_INFO
