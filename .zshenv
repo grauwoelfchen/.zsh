@@ -46,21 +46,30 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 # }}}
 
-# rbenv {{{
+# ruby {{{
+## rbenv
 export RBENV_ROOT=/usr/local/share/rbenv
 export PATH=$RBENV_ROOT/bin:$PATH
-eval "$(rbenv init -)"
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 # }}}
 
 # python {{{
 export PYTHONSTARTUP=$HOME/.pythonstartup
-# virtualenv
+## virtualenv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=/usr/local/share/virtualenvs
   export VIRTUALENVWRAPPER_HOOK_DIR=$WORKON_HOME
   export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
   source /usr/bin/virtualenvwrapper_lazy.sh
+fi
+## pyenv
+export PYENV_ROOT=/usr/local/share/pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi
 # }}}
 
