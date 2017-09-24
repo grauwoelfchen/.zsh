@@ -130,8 +130,6 @@ function restore-tabs() {
   cat $HOME/urls.txt | \
     while read line; do firefox -new-tab $line >/dev/null 2>&1; done
 }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
 
 # GnuPG (agent) {{{
