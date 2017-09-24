@@ -63,14 +63,19 @@ bindkey '^H'   slash-backward-kill-word
 ### prompt {{{
 [ -f $HOME/.sh.d/src/git-prompt.sh ] && source $HOME/.sh.d/src/git-prompt.sh
 setopt prompt_subst
-# spring
+# winter
+PROMPT="%F{239}%m%f %F{105}%~%f \$(git_prompt)\$(uptime | \
+awk -F': ' '{ print \$2 }')
+%F{153}%#%f "
+## spring
 #PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | \
 #awk -F': ' '{ print \$2 }')
 #%F{219}%#%f "
-# summer
-PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
-awk -F': ' '{ print \$2 }')
-%F{103}%#%f "
+## summer
+#PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
+#awk -F': ' '{ print \$2 }')
+#%F{103}%#%f "
+## gentoo
 #autoload -U promptinit
 #promptinit
 #prompt gentoo
