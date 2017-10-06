@@ -1,16 +1,31 @@
 # .zsh
 
+Personal `.zshrc`, `.zshenv`, scripts and settings.
+
+
+## Repository
+
+https://gitlab.com/grauwoelfchen/DotZsh
+
+
 ## Setup
 
-```
+```zsh
 % cd
-% git clone git@github.com:grauwoelfchen/.zsh.git && cd .zsh
+% git clone git@gitlab.com:grauwoelfchen/dotzsh.git && cd .zsh
 % git submodule update --init
 ```
 
+
 ## Prompt
 
-```
+Let's use seasonal prompt! See `~/.zshrc`.
+
+```zsh
+# winter
+PROMPT="%F{239}%m%f %F{105}%~%f \$(git_prompt)\$(uptime | \
+awk -F': ' '{ print \$2 }')
+%F{153}%#%f "
 # spring
 PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | awk -F'  ' '{ print \$4 }')
 %F{219}%#%f "
@@ -19,29 +34,40 @@ PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | awk -F'  ' '{ print \$
 %F{103}%#%f "
 ```
 
+or use `gentoo` like prompt.
+
+```zsh
+# gentoo
+autoload -U promptinit
+promptinit
+prompt gentoo
+```
+
 
 ## Note
 
-### Private .zshrc
+### Private `.zshrc`
 
-Put `.zshrc.metal` into `.zsh` directory, if you want to put sensitive value in zshrc.
+Put `.zshrc.metal` into `.zsh` directory, if you want to put sensitive value
+in zshrc.
 
 `\m/^_^\m/`
 
-### .sh.d
+### `.sh.d`
 
 Shared scripts in `.sh.d` directory are universal. (zsh, bash)
 
-### .env autoloading
+### `.env` autoloading
 
-The astostash/stash/unstash functions are available by [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv).
+The astostash/stash/unstash functions are available by [zsh-autoenv](
+https://github.com/Tarrasch/zsh-autoenv).
 To load environment variables from `.env`, put `.autoenv.zsh` like this:
 
-```
+```sh
 while read -r line; do; local var=$(echo "$(eval echo $line)"); autostash $var; done < ./.env
 ```
 
-See `.autoenv.zsh.sample` or use [direnv](https://github.com/direnv/direnv)
+See `.autoenv.zsh.sample` or use [direnv](https://github.com/direnv/direnv).
 
 ### Startup files
 
@@ -57,12 +83,18 @@ The files will be loaded by following order.
 
 `/etc/zsh/zprofile` of Gentoo clears environment variables with `unset`.
 
-```
+```zsh
 % sudo mv /etc/zsh/{zprofile,zprofile.orig}
 ```
 
 
 ## License
 
-Copyright (C) 2013 - 2016 Yasuhiro Asaka \<grauwoelfchen@gmail.com\>  
-Distributed under the GNU General Public License, version [2.0](http://www.gnu.org/licenses/gpl-2.0.txt).
+Copyright (c) 2013-2017 Yasuhiro Asaka
+
+This is free software:  
+You can redistribute it and/or modify it under the terms of
+the GUN General Public License as published by the
+Free Software Foundation.
+
+See [LICENSE](LICENSE). (`GPL-2.0`)
