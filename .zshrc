@@ -138,17 +138,18 @@ function restore-tabs() {
 # }}}
 
 # GnuPG (agent) {{{
-## < 2.1.11
+export GPG_TTY=$(tty)
+## < 2.0.11
 #[ -z "$(pgrep gpg-agent)" ] && \
 #  eval $(gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info)
+## < 2.1.16
+## https://www.gnupg.org/faq/whats-new-in-2.1.html#autostart
+#[ -f $HOME/.gpg-agent-info ] && \
+#  source $HOME/.gpg-agent-info
+#export GPG_AGENT_INFO
 # >= 2.1.11
 [ -z "$(pgrep gpg-agent)" ] && \
-  eval "$(gpg-agent --daemon --keep-tty --keep-display \
---options $HOME/.gnupg/gpg-agent.conf)"
-[ -f $HOME/.gpg-agent-info ] && \
-  source $HOME/.gpg-agent-info
-export GPG_AGENT_INFO
-export GPG_TTY=`tty`
+  eval "$(gpg-agent --daemon --options $HOME/.gnupg/gpg-agent.conf)"
 # }}}
 
 # private .zshrc
