@@ -148,8 +148,7 @@ export GPG_TTY=$(tty)
 #  source $HOME/.gpg-agent-info
 #export GPG_AGENT_INFO
 # >= 2.1.11
-[ -z "$(pgrep gpg-agent)" ] && \
-  eval "$(gpg-agent --daemon --options $HOME/.gnupg/gpg-agent.conf)"
+[ -z "$(pgrep gpg-agent)" ] && eval "$(gpg-agent --daemon)"
 # }}}
 
 # private .zshrc
