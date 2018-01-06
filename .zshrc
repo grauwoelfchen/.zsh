@@ -66,15 +66,15 @@ setopt prompt_subst
 # winter
 PROMPT="%F{239}%m%f %F{105}%~%f \$(git_prompt)\$(uptime | \
 awk -F': ' '{ print \$2 }')
-%F{153}%#%f "
+%F{153}❯❯❯%f "
 ## spring
 #PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | \
 #awk -F': ' '{ print \$2 }')
-#%F{219}%#%f "
+#%F{219}❯❯❯%f "
 ## summer
 #PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
 #awk -F': ' '{ print \$2 }')
-#%F{103}%#%f "
+#%F{103}❯❯❯%f "
 ## gentoo
 #autoload -U promptinit
 #promptinit
