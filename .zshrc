@@ -8,7 +8,7 @@ fpath+=$HOME/.zfunc
 autoload -U compinit && compinit
 # }}}
 
-### escape{{{
+### escape {{{
 setopt rcquotes
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
