@@ -12,6 +12,7 @@ https://gitlab.com/grauwoelfchen/DotZsh
 
 ```zsh
 % cd
+% mkdir ~/.zfunc
 % git clone git@gitlab.com:grauwoelfchen/dotzsh.git && cd .zsh
 % git submodule update --init
 ```
@@ -25,16 +26,23 @@ Let's use seasonal prompt! See `~/.zshrc`.
 # winter
 PROMPT="%F{239}%m%f %F{105}%~%f \$(git_prompt)\$(uptime | \
 awk -F': ' '{ print \$2 }')
-%F{153}%#%f "
+%F{153}❯❯❯%f "
 # spring
 PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | awk -F'  ' '{ print \$4 }')
-%F{219}%#%f "
+#%F{219}❯❯❯%f "
 # summer
 PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | awk -F'  ' '{ print \$4 }')
-%F{103}%#%f "
+#%F{103}❯❯❯%f "
 ```
 
-or use `gentoo` like prompt.
+It will be something like this:
+
+```zsh
+stockhorn ~/.atelier/usr/share/path/to/a/repository/ master 0.21, 0.28, 0.17
+❯❯❯ _
+```
+
+or just use `gentoo` like prompt.
 
 ```zsh
 # gentoo
@@ -90,7 +98,7 @@ The files will be loaded by following order.
 
 ## License
 
-Copyright (c) 2013-2017 Yasuhiro Asaka
+Copyright (c) 2013-2018 Yasuhiro Asaka
 
 This is free software:  
 You can redistribute it and/or modify it under the terms of
