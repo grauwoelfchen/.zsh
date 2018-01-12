@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+## additions {{
+fpath+=$HOME/.zfunc
+# }}
+
 ### completion {{{
 autoload -U compinit && compinit
 # }}}
