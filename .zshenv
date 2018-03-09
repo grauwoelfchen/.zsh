@@ -31,6 +31,10 @@ export WWW_HOME="file:///opt/local/.startup/index.html"
 export GIT_MERGE_VERBOSITY=4
 # }}}
 
+# rust {{{
+export PATH="$HOME/.cargo/bin:$PATH"
+# }}}
+
 # erlang {{{
 export PATH=$HOME/.erln8.d/bin:$PATH
 # }}}
