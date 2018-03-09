@@ -86,6 +86,13 @@ if [ "/usr/bin/go" = "$(which go)" ]; then
 fi
 # }}}
 
+# java {{{
+GRADLE_PATH="$HOME/.gradle/wrapper/dists/gradle-4.1-all"
+GRADLE_PATH="$GRADLE_PATH/bzyivzo6n839fup2jbap0tjew/gradle-4.1"
+export GRADLE_PATH=$GRADLE_PATH
+
+# }}}
+
 # alias {{{
 source $HOME/.aliasrc
 # }}}
