@@ -91,8 +91,8 @@ fi
 # }}}
 
 # java {{{
-GRADLE_PATH="$HOME/.gradle/wrapper/dists/gradle-4.1-all"
-GRADLE_PATH="$GRADLE_PATH/bzyivzo6n839fup2jbap0tjew/gradle-4.1"
+GRADLE_PATH="$HOME/.gradle/wrapper/dists/gradle-4.6-all"
+GRADLE_PATH="$GRADLE_PATH/bcst21l2brirad8k2ben1letg/gradle-4.6"
 export GRADLE_PATH=$GRADLE_PATH
 
 # }}}
