@@ -164,6 +164,9 @@ export GPG_TTY=$(tty)
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# exercism
+[ -f $HOME/.config/exercism/exercism_completion.zsh ] && \
+  source $HOME/.config/exercism/exercism_completion.zsh
 # }}}
 
 ### bundle {{{
