@@ -139,6 +139,14 @@ function restore-tabs() {
   cat $HOME/urls.txt | \
     while read line; do firefox -new-tab $line >/dev/null 2>&1; done
 }
+
+function run() {
+  number="$1"
+  shift
+  for _ in $(seq $number); do
+    $@
+  done
+}
 # }}}
 
 # GnuPG (agent) {{{
