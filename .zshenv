@@ -68,6 +68,15 @@ if command -v rbenv 1>/dev/null 2>&1; then
 fi
 # }}}
 
+# php {{{
+## phpenv
+export PHPENV_ROOT=/usr/local/share/phpenv
+export PATH=$PHPENV_ROOT/bin:$PATH
+if command -v phpenv 1>/dev/null 2>&1; then
+  eval "$(phpenv init -)"
+fi
+# }}}
+
 # python {{{
 export PYTHONSTARTUP=$HOME/.pythonstartup
 ## virtualenv
