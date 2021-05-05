@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-source $HOME/.profile
+# source $HOME/.profile
