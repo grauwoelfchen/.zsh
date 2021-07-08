@@ -202,3 +202,13 @@ ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
 ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
 ZSH_HIGHLIGHT_STYLES[command]="fg=066"
 # }}}
+
+### compgen {{{
+# The following lines were added by compinstall
+zstyle :compinstall filename "${HOME}/.zsh/.zshrc"
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+autoload -Uz compinit
+compinit
+autoload -Uz bashcompinit
+bashcompinit
+# }}}
