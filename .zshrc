@@ -1,7 +1,8 @@
 #!/bin/zsh
 
-## additions {{
-fpath+=$HOME/.zfunc
+## additional functions {{
+# export fpath=(~/.zsh/.zfunc $path)
+fpath+=$HOME/.zsh/.zfunc/
 # }}
 
 ### completion {{{
