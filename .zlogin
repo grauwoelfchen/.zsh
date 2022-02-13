@@ -16,6 +16,6 @@ stty stop undef
 # xterm
 TERM=xterm-256color
 XTERM_SHELL=/bin/zsh
-XTERM_LOCALE="en_US.UTF-8"
+XTERM_LOCALE="en_GB.UTF-8"
 XTERM_VERSION="XTerm(276)"
 export TERM XTERM_SHELL_XTERM_LOCALE XTERM_VERSION
