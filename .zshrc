@@ -213,3 +213,11 @@ compinit
 autoload -Uz bashcompinit
 bashcompinit
 # }}}
+
+### keychain on WSL {{{
+# SSH agent manager
+if [ -f $HOME/.zsh/.keychain ]; then
+  source $HOME/.zsh/.keychain
+  source $HOME/.keychain/$(hostname)-sh
+fi
+# }}}

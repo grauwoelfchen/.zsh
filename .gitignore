@@ -2,4 +2,6 @@
 .zcompdump
 .zshrc.metal
 
+.keychain
+
 .zfunc/_*
