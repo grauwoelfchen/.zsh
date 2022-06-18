@@ -122,6 +122,10 @@ if command -v anyenv 1>/dev/null 2>&1; then
 fi
 # }}}
 
+# dotnet {{{
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+# }}}
+
 # alias {{{
 source $HOME/.aliasrc
 # }}}
