@@ -33,7 +33,9 @@ export GIT_MERGE_VERBOSITY=4
 
 # rust {{{
 export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+if command -v rustc 1>/dev/null 2>&1; then
+  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
 # }}}
 
 # erlang {{{
