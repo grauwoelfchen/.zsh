@@ -3,13 +3,7 @@
 	url = https://github.com/knu/zsh-git-escape-magic
 [submodule "bundle/zsh-syntax-highlighting"]
 	path = bundle/zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh-autoenv"]
-	path = zsh-autoenv
-	url = https://github.com/Tarrasch/zsh-autoenv.git
-[submodule "bundlez/zsh-autoenv"]
-	path = bundlez/zsh-autoenv
-	url = https://github.com/Tarrasch/zsh-autoenv.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "bundle/zsh-autoenv"]
 	path = bundle/zsh-autoenv
 	url = https://github.com/Tarrasch/zsh-autoenv.git
