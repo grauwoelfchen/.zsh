@@ -11,9 +11,13 @@ $fpath
 # }}}
 
 # path {{{
+export PATH=/usr/sbin:/usr/bin:/sbin:/bin
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-export PATH=/sbin:/usr/sbin:$PATH
-export PATH=$PATH:/usr/games/bin
+# gentoo prefix
+# export EPREFIX=/opt/gentoo
+# export PATH=$EPREFIX/sbin:$EPREFIX/bin:$PATH
+# export PATH=$EPREFIX/usr/sbin:$EPREFIX/usr/bin:$PATH
+# export PATH=$EPREFIX/usr/local/sbin:$EPREFIX/usr/local/bin:$PATH
 # atelier
 export PATH=$HOME/.atelier/bin:$PATH
 # }}}
@@ -24,6 +28,7 @@ export EDITOR=$VIM GIT_EDITOR=$VIM SVN_EDITOR=$VIM
 # }}}
 
 # browser {{{
+export WGETRC=$HOME/.wgetrc
 export WWW_HOME="file:///opt/local/.startup/index.html"
 # }}}
 
