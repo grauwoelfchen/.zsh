@@ -48,6 +48,7 @@ export PATH=$HOME/.erln8.d/bin:$PATH
 # }}}
 
 # lisp {{{
+export SBCL_HOME=/usr/lib64/sbcl
 export PATH=$HOME/.shelly/bin:$PATH
 # }}}
 
