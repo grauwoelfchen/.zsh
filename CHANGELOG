@@ -1,3 +1,6 @@
+21 Sep 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+  Update .zshenv to reset $PATH
+
 16 Feb 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
   Add keychain (net-misc/keychain) support
 
