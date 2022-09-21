@@ -112,7 +112,7 @@ export GOOS=linux
 if [ "/usr/bin/go" = "$(which go)" ]; then
   export GOROOT=/usr/lib/go
   export GOPATH=$HOME/.go
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+  export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 fi
 # }}}
 
