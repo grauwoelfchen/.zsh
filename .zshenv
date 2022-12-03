@@ -134,6 +134,11 @@ fi
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # }}}
 
+# ocaml {{{
+ [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || \
+   source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# }}}
+
 # alias {{{
 source $HOME/.aliasrc
 # }}}
