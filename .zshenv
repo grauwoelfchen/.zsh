@@ -121,10 +121,13 @@ if [ "/usr/bin/go" = "$(which go)" ]; then
 fi
 # }}}
 
+# android {{{
+export ANDROID_HOME="$HOME/.android"
+# }}}
+
 # java {{{
-GRADLE_PATH="$HOME/.gradle/wrapper/dists/gradle-4.6-all"
-GRADLE_PATH="$GRADLE_PATH/bcst21l2brirad8k2ben1letg/gradle-4.6"
-export GRADLE_PATH=$GRADLE_PATH
+export GRADLE_HOME="$HOME/.gradle"
+export GRADLE_PATH="./gradlew"
 # }}}
 
 # anyenv {{{
