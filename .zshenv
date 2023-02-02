@@ -36,6 +36,10 @@ export WWW_HOME="file:///opt/local/.startup/index.html"
 export GIT_MERGE_VERBOSITY=4
 # }}}
 
+# arduino {{{
+export ARDUINODIR=/usr/local/share/arduino
+# }}}
+
 # rust {{{
 export PATH="$HOME/.cargo/bin:$PATH"
 if command -v rustc 1>/dev/null 2>&1; then
