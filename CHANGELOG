@@ -1,3 +1,6 @@
+07 Mar 2023 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+  Unset $TERM for xterm and screen (let them handle it)
+
 21 Sep 2022 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
   Update .zshenv to reset $PATH
 

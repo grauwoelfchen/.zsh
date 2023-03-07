@@ -13,8 +13,12 @@ fi
 # disable stop by `C-s`
 stty stop undef
 
-# xterm
-TERM=xterm-256color
+# NOTE: let xterm and screen handle $TERM
+# xterm (set `XTerm*termName` in ~/.Xresources)
+# TERM=xterm-256color
+# screen (set `term` in ~/.screenrc)
+# TERM=screen-256color-bce
+
 XTERM_SHELL=/bin/zsh
 XTERM_LOCALE="en_GB.UTF-8"
 XTERM_VERSION="XTerm(276)"
