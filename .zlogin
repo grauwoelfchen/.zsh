@@ -19,7 +19,7 @@ stty stop undef
 # screen (set `term` in ~/.screenrc)
 # TERM=screen-256color-bce
 
+# XTERM_VERSION="XTerm(276)"
 XTERM_SHELL=/bin/zsh
 XTERM_LOCALE="en_GB.UTF-8"
-XTERM_VERSION="XTerm(276)"
-export TERM XTERM_SHELL_XTERM_LOCALE XTERM_VERSION
+export TERM XTERM_SHELL_XTERM_LOCALE
