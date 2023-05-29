@@ -71,6 +71,12 @@ if command -v nodenv 1>/dev/null 2>&1; then
 fi
 # }}}
 
+# elm {{{
+# npm i -g @elm-tooling/elm-language-server
+# npm i --save-dev elm-test elm-format
+# see $NODENV_ROOT/shims/elm-language-server
+# }}}
+
 # ruby {{{
 ## rbenv
 export RBENV_ROOT=/usr/local/share/rbenv
