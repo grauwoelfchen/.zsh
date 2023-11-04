@@ -180,7 +180,7 @@ bindkey '^I' $fzf_default_completion
 # exercism
 [ -f $HOME/.config/exercism/exercism_completion.zsh ] && \
   source $HOME/.config/exercism/exercism_completion.zsh
-# navi
+# navi (^g)
 type navi &>/dev/null && source <(echo "$(navi widget zsh)")
 # }}}
 
