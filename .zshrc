@@ -254,8 +254,7 @@ zstyle ':completion:*:default' list-colors ${LS_COLORS}
 ### completion {{{
 # export fpath=(~/.zsh/.zfunc $path)
 fpath+=$HOME/.zsh/.zfunc/
-# FIXME
-# fpath=(${ASDF_DIR}/completions $path)
+fpath+=${ASDF_DIR}/completions/
 
 autoload -U compinit && compinit
 # }}}
