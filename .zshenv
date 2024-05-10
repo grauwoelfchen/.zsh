@@ -63,13 +63,22 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 # }}}
 
-# nodenv {{{
+# nodejs {{{
+# nodenv
 export NODENV_ROOT=/usr/local/share/nodenv
 export PATH=$NODENV_ROOT/bin:$PATH
 if command -v nodenv 1>/dev/null 2>&1; then
   eval "$(nodenv init -)"
 fi
-# }}}
+# pnpm
+export PNPM_HOME=$HOME/.local/share/pnpm
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# via Bazel (NOTE: this needs to be put in single qutation marks)
+alias bnpm='bazel run -- @pnpm//:pnpm --dir $(git rev-parse --show-toplevel)'
+# }
 
 # elm {{{
 # npm i -g @elm-tooling/elm-language-server
