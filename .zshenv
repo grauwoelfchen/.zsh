@@ -136,11 +136,6 @@ export GRADLE_HOME=$HOME/.gradle
 export GRADLE_PATH=./gradlew
 # }}}
 
-# ocaml {{{
- [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || \
-   source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-# }}}
-
 # dotnet {{{
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # }}}
@@ -157,12 +152,4 @@ if command -v anyenv 1>/dev/null 2>&1; then
   export PATH=$HOME/.anyenv/bin:$PATH
   eval "$(anyenv init -)"
 fi
-# }}}
-
-# asdf {{{
-[[ -s "${HOME}/.asdf/asdf.sh" ]] && source $HOME/.asdf/asdf.sh
-# }}}
-
-# alias {{{
-source $HOME/.aliasrc
 # }}}

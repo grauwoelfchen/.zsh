@@ -56,10 +56,8 @@ prompt gentoo
 
 ### Private `.zshrc`
 
-Put `.zshrc.metal` into `.zsh` directory, if you want to put sensitive value
+Put `.zshrc.private` into `.zsh` directory, if you want to put sensitive value
 in zshrc.
-
-`\m/^_^\m/`
 
 ### `.sh.d`
 
@@ -98,9 +96,9 @@ The files will be loaded by following order.
 
 ## License
 
-Copyright (c) 2013-2018 Yasuhiro Asaka
+Copyright (c) 2013-2024 Yasha
 
-This is free software:  
+This is free software:
 You can redistribute it and/or modify it under the terms of
 the GUN General Public License as published by the
 Free Software Foundation.

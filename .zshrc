@@ -1,14 +1,5 @@
 #!/bin/zsh
 
-## additional functions {{
-# export fpath=(~/.zsh/.zfunc $path)
-fpath+=$HOME/.zsh/.zfunc/
-# }}
-
-### completion {{{
-autoload -U compinit && compinit
-# }}}
-
 ### escape {{{
 setopt rcquotes
 autoload -Uz url-quote-magic
@@ -16,7 +7,7 @@ zle -N self-insert url-quote-magic
 # }}}
 
 ### correction {{{
-#setopt correctall
+# setopt correctall
 # }}}
 
 ### cd {{{
@@ -39,14 +30,7 @@ export HISTFILE="$HOME/.zsh/.zsh-history"
 export SAVEHIST=$HISTSIZE
 #}}}
 
-### color {{{
-autoload -U colors && colors
-## completion
-eval `dircolors`
-zstyle ':completion:*:default' list-colors ${LS_COLORS}
-# }}}
-
-### keys {{{
+### key bindings {{{
 # note
 #   ^  := ctrl
 #   ^[ := esc
@@ -56,13 +40,13 @@ bindkey '^p'   history-beginning-search-backward
 bindkey '^n'   history-beginning-search-forward
 bindkey '^[\-' quote-line
 bindkey '^H'   slash-backward-kill-word
-## default
-#bindkey 'tab'  expand-or-complete
-#bindkey '^[q'  push-line
-#bindkey '^[a'  accept-and-hold
-#bindkey '^[h'  run-help
-#bindkey '^[\'' quote-line
-#bindkey '^?'   delete-char
+# # default
+# bindkey 'tab'  expand-or-complete
+# bindkey '^[q'  push-line
+# bindkey '^[a'  accept-and-hold
+# bindkey '^[h'  run-help
+# bindkey '^[\'' quote-line
+# bindkey '^?'   delete-char
 # }}}
 
 ### prompt {{{
@@ -72,18 +56,18 @@ setopt prompt_subst
 PROMPT="%F{239}%m%f %F{105}%~%f \$(git_prompt)\$(uptime | \
 awk -F': ' '{ print \$2 }')
 %F{153}❯❯❯%f "
-## spring
-#PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | \
-#awk -F': ' '{ print \$2 }')
-#%F{219}❯❯❯%f "
-## summer
-#PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
-#awk -F': ' '{ print \$2 }')
-#%F{103}❯❯❯%f "
-## gentoo
-#autoload -U promptinit
-#promptinit
-#prompt gentoo
+# # spring
+# PROMPT="%F{029}%m%f %F{077}%~%f \$(git_prompt)\$(uptime | \
+# awk -F': ' '{ print \$2 }')
+# %F{219}❯❯❯%f "
+# # summer
+# PROMPT="%F{026}%m%f %F{074}%~%f \$(git_prompt)\$(uptime | \
+# awk -F': ' '{ print \$2 }')
+# %F{103}❯❯❯%f "
+# # gentoo
+# autoload -U promptinit
+# promptinit
+# prompt gentoo
 # }}}
 
 ### widgets {{{
@@ -94,7 +78,92 @@ slash-backward-kill-word() {
 zle -N slash-backward-kill-word
 # }}}
 
+# GnuPG (agent) {{{
+export GPG_TTY=$(tty)
+# # < 2.0.11
+# [ -z "$(pgrep gpg-agent)" ] && \
+#   eval $(gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info)
+# # < 2.1.16
+# # https://www.gnupg.org/faq/whats-new-in-2.1.html#autostart
+# [ -f $HOME/.gpg-agent-info ] && \
+#   source $HOME/.gpg-agent-info
+# export GPG_AGENT_INFO
+# >= 2.1.11
+[ -z "$(pgrep gpg-agent)" ] && eval "$(gpg-agent --daemon)"
+# }}}
+
+# private .zshrc {{{
+[ -f $HOME/.zsh/.zshrc.private ] && source $HOME/.zsh/.zshrc.private
+# }}}
+
+### bundle {{{
+BUNDLE=$HOME/.zsh/bundle
+autoload -Uz git-escape-magic
+git-escape-magic
+# autoenv
+source $BUNDLE/zsh-autoenv/autoenv.zsh
+AUTOENV_FILE_ENTER=.autoenv
+AUTOENV_FILE_LEAVE=.autoenv.leave
+# syntax-highlight
+ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
+source $BUNDLE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=088"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
+ZSH_HIGHLIGHT_STYLES[path]="fg=182"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
+ZSH_HIGHLIGHT_STYLES[command]="fg=066"
+# }}}
+
+### compgen {{{
+# The following lines were added by compinstall
+zstyle :compinstall filename "${HOME}/.zsh/.zshrc"
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+autoload -Uz compinit
+compinit
+autoload -Uz bashcompinit
+bashcompinit
+# }}}
+
+# opam {{{
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || \
+  source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# }}}
+
+# asdf {{{
+[[ -s "${HOME}/.asdf/asdf.sh" ]] && source $HOME/.asdf/asdf.sh
+# }}}
+
+### k8s & kn {{{
+if command -v kubectl 1>/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
+alias kubectl="kubecolor"
+compdef kubecolor=kubectl
+
+if command -v flux 1>/dev/null 2>&1; then
+  source <(flux completion zsh)
+fi
+if command -v helm 1>/dev/null 2>&1; then
+  source <(helm completion zsh)
+fi
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:${PATH}"
+# }}}
+
 ### utils {{{
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--extended --cycle --select-1 --exit-0"
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^F' fzf-completion
+bindkey '^I' $fzf_default_completion
+# navi (^g)
+type navi &>/dev/null && source <(echo "$(navi widget zsh)")
+# }}}
+
+### functions {{{
 function st-branch() {
   local branch remote ahead behind
   if [[ -n $1 ]]; then
@@ -150,74 +219,43 @@ function run() {
 }
 # }}}
 
-# GnuPG (agent) {{{
-export GPG_TTY=$(tty)
-## < 2.0.11
-#[ -z "$(pgrep gpg-agent)" ] && \
-#  eval $(gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info)
-## < 2.1.16
-## https://www.gnupg.org/faq/whats-new-in-2.1.html#autostart
-#[ -f $HOME/.gpg-agent-info ] && \
-#  source $HOME/.gpg-agent-info
-#export GPG_AGENT_INFO
-# >= 2.1.11
-[ -z "$(pgrep gpg-agent)" ] && eval "$(gpg-agent --daemon)"
+### macOS {{{
 # }}}
 
-# private .zshrc
-[ -f $HOME/.zsh/.zshrc.metal ] && source $HOME/.zsh/.zshrc.metal
-# }}}
-
-### vendors {{{
-# travis
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--extended --cycle --select-1 --exit-0"
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^F' fzf-completion
-bindkey '^I' $fzf_default_completion
-# exercism
-[ -f $HOME/.config/exercism/exercism_completion.zsh ] && \
-  source $HOME/.config/exercism/exercism_completion.zsh
-# navi (^g)
-type navi &>/dev/null && source <(echo "$(navi widget zsh)")
-# }}}
-
-### bundle {{{
-BUNDLE=$HOME/.zsh/bundle
-autoload -Uz git-escape-magic
-git-escape-magic
-## autoenv
-source $BUNDLE/zsh-autoenv/autoenv.zsh
-AUTOENV_FILE_ENTER=.autoenv
-AUTOENV_FILE_LEAVE=.autoenv.leave
-## syntax-highlight
-ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$BUNDLE/zsh-syntax-highlighting/highlighters"
-source $BUNDLE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=088"
-ZSH_HIGHLIGHT_STYLES[alias]="fg=cyan"
-ZSH_HIGHLIGHT_STYLES[path]="fg=182"
-ZSH_HIGHLIGHT_STYLES[builtin]="fg=225"
-ZSH_HIGHLIGHT_STYLES[globbing]="fg=yellow"
-ZSH_HIGHLIGHT_STYLES[command]="fg=066"
-# }}}
-
-### compgen {{{
-# The following lines were added by compinstall
-zstyle :compinstall filename "${HOME}/.zsh/.zshrc"
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
-autoload -Uz compinit
-compinit
-autoload -Uz bashcompinit
-bashcompinit
-# }}}
-
-### keychain on WSL {{{
+### WSL {{{
 # SSH agent manager
 if [ -f $HOME/.zsh/.keychain ]; then
   source $HOME/.zsh/.keychain
   source $HOME/.keychain/$(hostname)-sh
 fi
+# }}}
+
+### vendors {{{
+# travis
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+# exercism
+[ -f $HOME/.config/exercism/exercism_completion.zsh ] && \
+  source $HOME/.config/exercism/exercism_completion.zsh
+# }}}
+
+# -----
+
+### alias {{{
+source $HOME/.aliasrc
+# }}}
+
+### color {{{
+autoload -U colors && colors
+# completion
+eval `dircolors`
+zstyle ':completion:*:default' list-colors ${LS_COLORS}
+# }}}
+
+### completion {{{
+# export fpath=(~/.zsh/.zfunc $path)
+fpath+=$HOME/.zsh/.zfunc/
+# FIXME
+# fpath=(${ASDF_DIR}/completions $path)
+
+autoload -U compinit && compinit
 # }}}
