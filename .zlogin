@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # startup
 if [[ -n "$DISPLAY" ]]; then
