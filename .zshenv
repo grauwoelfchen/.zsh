@@ -41,7 +41,7 @@ export ARDUINODIR=/usr/local/share/arduino
 # }}}
 
 # rust {{{
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$HOME/.cargo/bin:$PATH
 if command -v rustc 1>/dev/null 2>&1; then
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
@@ -118,7 +118,7 @@ fi
 export GOARCH=amd64
 export GOOS=linux
 # gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm
 # system
 if [ "/usr/bin/go" = "$(which go)" ]; then
   export GOROOT=/usr/lib/go
@@ -128,12 +128,12 @@ fi
 # }}}
 
 # android {{{
-export ANDROID_HOME="$HOME/.android"
+export ANDROID_HOME=$HOME/.android
 # }}}
 
 # java {{{
-export GRADLE_HOME="$HOME/.gradle"
-export GRADLE_PATH="./gradlew"
+export GRADLE_HOME=$HOME/.gradle
+export GRADLE_PATH=./gradlew
 # }}}
 
 # anyenv {{{

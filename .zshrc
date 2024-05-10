@@ -185,7 +185,7 @@ type navi &>/dev/null && source <(echo "$(navi widget zsh)")
 # }}}
 
 ### bundle {{{
-BUNDLE="$HOME/.zsh/bundle"
+BUNDLE=$HOME/.zsh/bundle
 autoload -Uz git-escape-magic
 git-escape-magic
 ## autoenv
