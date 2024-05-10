@@ -145,6 +145,13 @@ export GRADLE_PATH=./gradlew
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 # }}}
 
+# flatpak {{{
+# GTK4
+export LIBGL_ALWAYS_INDIRECT=1
+export GSK_RENDERER="cairo"
+export GIO_EXTRA_MODULES=/usr/lib64/gio/modules/
+# }}}
+
 # anyenv {{{
 if command -v anyenv 1>/dev/null 2>&1; then
   export PATH=$HOME/.anyenv/bin:$PATH
