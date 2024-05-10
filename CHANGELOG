@@ -1,3 +1,10 @@
+10 May 2024 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+  Rename .zshrc.metal to .zshrc.private
+  Move some script source in .zshenv to .zshrc
+  Add asdf, flatpak configurations
+
+  * UPDATED: .zshrc, zshenv, README
+
 07 Mar 2023 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
   Unset $TERM for xterm and screen (let them handle it)
 
