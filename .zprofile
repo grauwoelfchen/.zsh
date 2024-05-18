@@ -15,8 +15,8 @@ export LC_ALL
 
 # source $HOME/.profile
 
-# see .zlogout
-if [ -z "${SSH_AUTH_SOCK}" ]; then
-  eval `ssh-agent -s`
-  ssh-add
-fi
+# see .zlogout (and .xinitrc)
+# if [ -z "${SSH_AUTH_SOCK}" ]; then
+#   eval `ssh-agent -s`
+#   ssh-add
+# fi
