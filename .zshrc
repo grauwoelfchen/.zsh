@@ -157,7 +157,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:${PATH}"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--extended --cycle --select-1 --exit-0"
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^F' fzf-completion
+bindkey '^Z' fzf-completion
 bindkey '^I' $fzf_default_completion
 # navi (^g)
 type navi &>/dev/null && source <(echo "$(navi widget zsh)")
