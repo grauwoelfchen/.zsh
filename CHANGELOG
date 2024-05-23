@@ -1,3 +1,8 @@
+22 May 2024 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
+  Set ^F back to the default behaviour (move the cursor right)
+
+  * Updated: .zshrc
+
 10 May 2024 Yasuhiro Яша Asaka <yasuhiro.asaka@grauwoelfchen.net>
   Add .zlogout for SSH_AUTH_SOCK management
 
