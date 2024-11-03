@@ -126,15 +126,6 @@ autoload -Uz bashcompinit
 bashcompinit
 # }}}
 
-# opam {{{
-[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || \
-  source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-# }}}
-
-# asdf {{{
-[[ -s "${HOME}/.asdf/asdf.sh" ]] && source $HOME/.asdf/asdf.sh
-# }}}
-
 ### k8s & kn {{{
 if command -v kubectl 1>/dev/null 2>&1; then
   source <(kubectl completion zsh)
