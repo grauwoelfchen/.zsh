@@ -57,19 +57,19 @@ export PATH=$HOME/.shelly/bin:$PATH
 # }}}
 
 # haskell {{{
-## cabal
+# cabal
 export PATH=$HOME/.cabal/bin:$PATH
-## stack
+# stack
 export PATH=$HOME/.local/bin:$PATH
 # }}}
 
 # nodejs {{{
-# nodenv
-export NODENV_ROOT=/usr/local/share/nodenv
-export PATH=$NODENV_ROOT/bin:$PATH
-if command -v nodenv 1>/dev/null 2>&1; then
-  eval "$(nodenv init -)"
-fi
+# # nodenv -> asdf
+# export NODENV_ROOT=/usr/local/share/nodenv
+# export PATH=$NODENV_ROOT/bin:$PATH
+# if command -v nodenv 1>/dev/null 2>&1; then
+#   eval "$(nodenv init -)"
+# fi
 # pnpm
 export PNPM_HOME=$HOME/.local/share/pnpm
 case ":$PATH:" in
@@ -80,6 +80,11 @@ esac
 alias bnpm='bazel run -- @pnpm//:pnpm --dir $(git rev-parse --show-toplevel)'
 # }
 
+# opam {{{
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || \
+  source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# }}}
+
 # elm {{{
 # npm i -g @elm-tooling/elm-language-server
 # npm i --save-dev elm-test elm-format
@@ -87,16 +92,16 @@ alias bnpm='bazel run -- @pnpm//:pnpm --dir $(git rev-parse --show-toplevel)'
 # }}}
 
 # ruby {{{
-## rbenv
-export RBENV_ROOT=/usr/local/share/rbenv
-export PATH=$RBENV_ROOT/bin:$PATH
-if command -v rbenv 1>/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
+# # rbenv -> asdf
+# export RBENV_ROOT=/usr/local/share/rbenv
+# export PATH=$RBENV_ROOT/bin:$PATH
+# if command -v rbenv 1>/dev/null 2>&1; then
+#   eval "$(rbenv init -)"
+# fi
 # }}}
 
 # php {{{
-## phpenv
+# phpenv
 export PHPENV_ROOT=/usr/local/share/phpenv
 export PATH=$PHPENV_ROOT/bin:$PATH
 if command -v phpenv 1>/dev/null 2>&1; then
@@ -106,7 +111,7 @@ fi
 
 # python {{{
 export PYTHONSTARTUP=$HOME/.pythonstartup
-## virtualenv
+# virtualenv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=/usr/local/share/virtualenvs
@@ -114,20 +119,20 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export VIRTUALENVWRAPPER_LOG_DIR=$WORKON_HOME
   source /usr/bin/virtualenvwrapper_lazy.sh
 fi
-## pyenv
-export PYENV_ROOT=/usr/local/share/pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
+# # pyenv -> asdf
+# export PYENV_ROOT=/usr/local/share/pyenv
+# export PATH=$PYENV_ROOT/bin:$PATH
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init --path)"
+#   eval "$(pyenv init -)"
+# fi
 # }}}
 
 # go {{{
 export GOARCH=amd64
 export GOOS=linux
-# gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm
+# # gvm -> asdf
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source $HOME/.gvm/scripts/gvm
 # system
 if [ "/usr/bin/go" = "$(which go)" ]; then
   export GOROOT=/usr/lib/go
@@ -161,4 +166,8 @@ if command -v anyenv 1>/dev/null 2>&1; then
   export PATH=$HOME/.anyenv/bin:$PATH
   eval "$(anyenv init -)"
 fi
+# }}}
+
+# asdf {{{
+[[ -s "${HOME}/.asdf/asdf.sh" ]] && source $HOME/.asdf/asdf.sh
 # }}}
