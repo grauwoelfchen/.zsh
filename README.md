@@ -1,3 +1,10 @@
+> [!NOTE]
+>
+> This repository has been moved. Please check the new locations below.
+>
+> * [~grauwoelfchen/.zsh](https://git.sr.ht/~grauwoelfchen/.zsh) on Sourcehut
+> * [grauwoelfchen/.zsh](https://codeberg.org/grauwoelfchen/.zsh) on Codeberg
+
 # .zsh
 
 Personal `.zshrc`, `.zshenv`, scripts and settings.
